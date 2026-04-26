@@ -1,57 +1,57 @@
-#NoEnv
+ï»¿#NoEnv
 #Persistent
 SetBatchLines, -1
 
 ; =========================================================
-; ¡i¶W¯Å³]©w°Ï¡j(¦pªG¤£·Ç¡A½Ð§ï³o¸Ì¡I)
+; ï¿½iï¿½Wï¿½Å³]ï¿½wï¿½Ï¡j(ï¿½pï¿½Gï¿½ï¿½ï¿½Ç¡Aï¿½Ð§ï¿½oï¿½Ì¡I)
 ; =========================================================
 
-; 1. §Aªº G25 ¬O´X¸¹±±¨î¾¹¡H (³q±`¬O 1¡A¦pªG¨S¤ÏÀ³§ï¦¨ 2)
+; 1. ï¿½Aï¿½ï¿½ G25 ï¿½Oï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½î¾¹ï¿½H (ï¿½qï¿½`ï¿½O 1ï¿½Aï¿½pï¿½Gï¿½Sï¿½ï¿½ï¿½ï¿½ï¿½ï¦¨ 2)
 JoyID := 1
 
-; 2. ·Ù¨® (Brake) ­nÅª¨ú­þ­Ó¶b¡H (§A­è­è´ú¸Õ®É¡A½òÂ÷¦X¾¹¦b¸õªº¨º­Ó)
-; ¿ï¶µ³q±`¦³: JoyU, JoyV, JoyZ, JoyR
-BrakeAxis := "JoyU"  ; <--- ¹w³]²q´ú¬O JoyU (Slider)¡A¦pªG¤£·|°Ê§ï³o¸Ì¡I
+; 2. ï¿½Ù¨ï¿½ (Brake) ï¿½nÅªï¿½ï¿½ï¿½ï¿½ï¿½Ó¶bï¿½H (ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½Õ®É¡Aï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+; ï¿½ï¶µï¿½qï¿½`ï¿½ï¿½: JoyU, JoyV, JoyZ, JoyR
+BrakeAxis := "JoyU"  ; <--- ï¿½wï¿½]ï¿½qï¿½ï¿½ï¿½O JoyU (Slider)ï¿½Aï¿½pï¿½Gï¿½ï¿½ï¿½|ï¿½Ê§ï¿½oï¿½Ì¡I
 
-; 3. ªoªù (Gas) ­nÅª¨ú­þ­Ó¶b¡H (³q±`¬O JoyY)
+; 3. ï¿½oï¿½ï¿½ (Gas) ï¿½nÅªï¿½ï¿½ï¿½ï¿½ï¿½Ó¶bï¿½H (ï¿½qï¿½`ï¿½O JoyY)
 GasAxis   := "JoyY"
 
-; 4. Âà¦V (Steer) ­nÅª¨ú­þ­Ó¶b¡H (³q±`¬O JoyX)
+; 4. ï¿½ï¿½V (Steer) ï¿½nÅªï¿½ï¿½ï¿½ï¿½ï¿½Ó¶bï¿½H (ï¿½qï¿½`ï¿½O JoyX)
 SteerAxis := "JoyX"
 
 ; =========================================================
-; ¥H¤Uµ{¦¡½X·|¦Û°Ê®M¥Î¤W­±ªº³]©w¡A¤£¥Î°Ê
+; ï¿½Hï¿½Uï¿½{ï¿½ï¿½ï¿½Xï¿½|ï¿½Û°Ê®Mï¿½Î¤Wï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½wï¿½Aï¿½ï¿½ï¿½Î°ï¿½
 ; =========================================================
 
-; --- µøµ¡³]©w ---
+; --- ï¿½ï¿½ï¿½ï¿½ï¿½]ï¿½w ---
 GuiWidth := 280
 GuiHeight := 260
-BackgroundColor := "000000" ; ¯Â¶Â­I´º (OBS ¥h­I¥Î)
+BackgroundColor := "000000" ; ï¿½Â¶Â­Iï¿½ï¿½ (OBS ï¿½hï¿½Iï¿½ï¿½)
 
-; +E0x02000000 = Âù­«½w½Ä (¨¾¤î°{Ã{/¯}¹Ï)
-; -Caption = ²¾°£¼ÐÃD¦C
-Gui, +AlwaysOnTop -Caption +ToolWindow +E0x02000000
+; +E0x02000000 = ï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½{ï¿½{/ï¿½}ï¿½ï¿½)
+; -Caption = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½C
+Gui, +AlwaysOnTop -Caption
 Gui, Color, %BackgroundColor%
 
-; Åýµøµ¡¥i©ì¦²
+; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ì¦²
 OnMessage(0x201, "WM_LBUTTONDOWN")
 
-; --- ¤¶­±§G§½ ---
+; --- ï¿½ï¿½ï¿½ï¿½ï¿½Gï¿½ï¿½ ---
 Gui, Font, s14 cWhite bold, Verdana
 
-; 1. Âà¦V±ø (¾î¦V)
+; 1. ï¿½ï¿½Vï¿½ï¿½ (ï¿½ï¿½V)
 Gui, Add, Text, x10 y10 w260 Center, Steering
 Gui, Add, Progress, vProgSteer x10 y40 w260 h25 c00A2FF Background333333, 50
 
-; 2. ½ñªO°Ï (ª½¥ß)
-; ¥ªÃäÅã¥Ü "Brake"¡A¦ý¤º³¡ÅÞ¿è¬OÅª¨ú§A³]©wªºÂ÷¦X¾¹¶b
+; 2. ï¿½ï¿½Oï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½)
+; ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "Brake"ï¿½Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¿ï¿½OÅªï¿½ï¿½ï¿½Aï¿½]ï¿½wï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½ï¿½ï¿½b
 Gui, Add, Text, x40 y80 w60 Center, Brake
 Gui, Add, Progress, vProgBrake x40 y120 w70 h130 Vertical cRed Background333333, 0
 
 Gui, Add, Text, x180 y80 w60 Center, Gas
 Gui, Add, Progress, vProgGas x180 y120 w70 h130 Vertical cLime Background333333, 0
 
-; 3. ÀÉ¦ìÅã¥Ü
+; 3. ï¿½É¦ï¿½ï¿½ï¿½ï¿½
 ;Gui, Font, s70 cYellow bold, Arial
 ;Gui, Add, Text, vGearText x100 y115 w120 h120 Center, N
 
@@ -60,8 +60,8 @@ SetTimer, UpdateHUD, 30
 return
 
 UpdateHUD:
-; --- °ÊºAÅª¨ú§A¦b¤W­±³]©wªº¶b ---
-; ²Õ¦X¦r¦ê¡A¨Ò¦p 1JoyX, 1JoyU
+; --- ï¿½ÊºAÅªï¿½ï¿½ï¿½Aï¿½bï¿½Wï¿½ï¿½ï¿½]ï¿½wï¿½ï¿½ï¿½b ---
+; ï¿½Õ¦Xï¿½rï¿½ï¿½Aï¿½Ò¦p 1JoyX, 1JoyU
 CurrentSteer := JoyID . SteerAxis
 CurrentGas   := JoyID . GasAxis
 CurrentBrake := JoyID . BrakeAxis
@@ -70,32 +70,32 @@ GetKeyState, rawSteer, %CurrentSteer%
 GetKeyState, rawGas,   %CurrentGas%
 GetKeyState, rawBrake, %CurrentBrake%
 
-; --- ½ñªO¤ÏÂà­×¥¿ ---
-; Ã¹§Þ½ñªO³q±`¡G¨S½ò=100 (º¡), ½ò¦º=0 (ªÅ)
-; §Ú­Ì­n¤ÏÂà¦¨¡G¨S½ò=0 (ªÅ), ½ò¦º=100 (º¡)
+; --- ï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½×¥ï¿½ ---
+; Ã¹ï¿½Þ½ï¿½Oï¿½qï¿½`ï¿½Gï¿½Sï¿½ï¿½=100 (ï¿½ï¿½), ï¿½ï¿½=0 (ï¿½ï¿½)
+; ï¿½Ú­Ì­nï¿½ï¿½ï¿½à¦¨ï¿½Gï¿½Sï¿½ï¿½=0 (ï¿½ï¿½), ï¿½ï¿½=100 (ï¿½ï¿½)
 if (rawGas < 50) 
 {
-    ; ³o¬Oªoªù°Ï¬q (0~49)
-    ; ¤½¦¡¡G(50 - ¼Æ­È) * 2
+    ; ï¿½oï¿½Oï¿½oï¿½ï¿½ï¿½Ï¬q (0~49)
+    ; ï¿½ï¿½ï¿½ï¿½ï¿½G(50 - ï¿½Æ­ï¿½) * 2
     FinalGas := (50 - rawGas) * 2
 }
 else
 {
-    ; ³o¬O·Ù¨®°Ï¬q©Î¨S½ò (50~100)¡AªoªùÅã¥Ü¬° 0
+    ; ï¿½oï¿½Oï¿½Ù¨ï¿½ï¿½Ï¬qï¿½Î¨Sï¿½ï¿½ (50~100)ï¿½Aï¿½oï¿½ï¿½ï¿½ï¿½Ü¬ï¿½ 0
     FinalGas := 0
 }
 FinalBrake := 100 - rawBrake
 
-; ¦pªG§Aµo²{¡u¨S½ò¤Ï¦Ó¬Oº¡ªº¡v¡A½Ð§â¤W­±¨º¦æ§ï¦¨¡GFinalBrake := rawBrake (®³±¼ 100 -)
+; ï¿½pï¿½Gï¿½Aï¿½oï¿½{ï¿½uï¿½Sï¿½ï¿½Ï¦Ó¬Oï¿½ï¿½ï¿½ï¿½ï¿½vï¿½Aï¿½Ð§ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¦¨ï¿½GFinalBrake := rawBrake (ï¿½ï¿½ï¿½ï¿½ 100 -)
 
-; --- §ó·s¹Ï§Î¤¶­± ---
+; --- ï¿½ï¿½sï¿½Ï§Î¤ï¿½ï¿½ï¿½ ---
 GuiControl,, ProgSteer, %rawSteer%
 GuiControl,, ProgGas,   %FinalGas%
 GuiControl,, ProgBrake, %FinalBrake%
 
-; --- ÀÉ¦ìÅÞ¿è (°w¹ï G25 H±ÆÀÉ) ---
+; --- ï¿½É¦ï¿½ï¿½Þ¿ï¿½ (ï¿½wï¿½ï¿½ G25 Hï¿½ï¿½ï¿½ï¿½) ---
 Gear := "N"
-; ¨Ï¥Î JoyID ÅÜ¼Æ¨Ó°»´ú«ö¶s
+; ï¿½Ï¥ï¿½ JoyID ï¿½Ü¼Æ¨Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½s
 if GetKeyState(JoyID . "Joy1")
     Gear := "1"
 else if GetKeyState(JoyID . "Joy2")
@@ -108,16 +108,17 @@ else if GetKeyState(JoyID . "Joy5")
     Gear := "5"
 else if GetKeyState(JoyID . "Joy6")
     Gear := "6"
-else if GetKeyState(JoyID . "Joy7") ; ­ËÀÉ
+else if GetKeyState(JoyID . "Joy7") ; ï¿½ï¿½ï¿½ï¿½
     Gear := "R"
 
 GuiControl,, GearText, %Gear%
 return
 
-; --- ©ì¦²¥\¯à ---
+; --- ï¿½ì¦²ï¿½\ï¿½ï¿½ ---
 WM_LBUTTONDOWN() {
     PostMessage, 0xA1, 2
 }
 
 GuiClose:
 ExitApp
+
